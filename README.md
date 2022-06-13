@@ -6,7 +6,7 @@ Very simple (and very fast) html compression.
     <img alt="Laravel HtmlMin" src="https://github.com/abordage/laravel-html-min/blob/master/docs/images/abordage-laravel-html-min-cover.png">
 </p>
 
-<p style="text-align: center;">
+<p style="text-align: center;" align="center">
 
 <a href="https://packagist.org/packages/abordage/laravel-html-min" title="Packagist version">
     <img alt="Packagist Version" src="https://img.shields.io/packagist/v/abordage/laravel-html-min">
