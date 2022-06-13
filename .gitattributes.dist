@@ -1,0 +1,12 @@
+# Ignore all test and documentation with "export-ignore".
+.editorconfig          export-ignore
+.gitattributes         export-ignore
+.github                export-ignore
+.gitignore             export-ignore
+.php-cs-fixer.cache    export-ignore
+.php-cs-fixer.php      export-ignore
+/art                   export-ignore
+/docs                  export-ignore
+/tests                 export-ignore
+UPGRADING.md           export-ignore
+testbench.yaml         export-ignore

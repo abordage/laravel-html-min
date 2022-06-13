@@ -1,0 +1,23 @@
+includes:
+    - phpstan-baseline.neon
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+
+    paths:
+        - src
+        - tests
+        - config
+
+    # The level 9 is the highest level
+    level: 8
+
+    ignoreErrors:
+
+    excludePaths:
+        - ./*/*/FileToBeExcluded.php
+        - ./dir/dir/FileToBeExcluded.php
+
+    editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%'
+
+    checkMissingIterableValueType: false

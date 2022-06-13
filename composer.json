@@ -1,0 +1,79 @@
+{
+    "name": "abordage/laravel-html-min",
+    "description": "HtmlMin is very simple (and very fast) html compression package for Laravel",
+    "license": "MIT",
+    "keywords": [
+        "html compress",
+        "html minification",
+        "html minifier",
+        "html minify",
+        "html min"
+    ],
+    "authors": [
+        {
+            "name": "Pavel Bychko",
+            "email": "box@abordage.dev",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/abordage/laravel-html-min",
+    "require": {
+        "php": ">=7.4",
+        "abordage/html-min": "^0.2.0",
+        "illuminate/support": "^8.0 || ^9.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "machatschek/laravel-server-timing": "^3.1",
+        "nunomaduro/collision": "^5.0 || ^6.0",
+        "nunomaduro/larastan": "^1.0 || ^2.0",
+        "orchestra/testbench": "^6.0 || ^7.0",
+        "phpstan/phpstan": "^1.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "Abordage\\LaravelHtmlMin\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Abordage\\LaravelHtmlMin\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "aliases": {
+                "HtmlMin": "Abordage\\LaravelHtmlMin\\Facades\\HtmlMin"
+            },
+            "providers": [
+                "Abordage\\LaravelHtmlMin\\HtmlMinServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "phpcsf": "vendor/bin/php-cs-fixer fix --diff",
+        "phpstan:generate-baseline": "vendor/bin/phpstan --generate-baseline",
+        "test:all": [
+            "@test:phpcsf",
+            "@test:phpstan",
+            "@test:phpunit"
+        ],
+        "test:phpcsf": "vendor/bin/php-cs-fixer fix --dry-run",
+        "test:phpstan": "vendor/bin/phpstan analyse",
+        "test:phpunit": "vendor/bin/phpunit --colors=always"
+    },
+    "scripts-descriptions": {
+        "phpcsf": "Run PHP-CS-Fixer fix",
+        "phpstan:generate-baseline": "Generate baseline for PHPStan",
+        "test:all": "Run all code analysis and tests",
+        "test:phpcsf": "Run PHP-CS-Fixer test",
+        "test:phpstan": "Run PHPStan",
+        "test:phpunit": "Run PHPUnit"
+    }
+}
