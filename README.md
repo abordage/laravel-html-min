@@ -6,44 +6,32 @@ Very simple (and very fast) html compression.
     <img alt="Laravel HtmlMin" src="https://github.com/abordage/laravel-html-min/blob/master/docs/images/abordage-laravel-html-min-cover.png">
 </p>
 
-[//]: # (<p style="text-align: center;">)
+<p style="text-align: center;">
 
-[//]: # (<a href="https://packagist.org/packages/abordage/laravel-html-min" title="Packagist version">)
+<a href="https://packagist.org/packages/abordage/laravel-html-min" title="Packagist version">
+    <img alt="Packagist Version" src="https://img.shields.io/packagist/v/abordage/laravel-html-min">
+</a>
 
-[//]: # (    <img alt="Packagist Version" src="https://img.shields.io/packagist/v/abordage/laravel-html-min">)
+<a href="https://github.com/abordage/laravel-html-min/actions/workflows/tests.yml" title="GitHub Tests Status">
+    <img alt="GitHub Tests Status" src="https://img.shields.io/github/workflow/status/abordage/laravel-html-min/Tests?label=tests">
+</a>
 
-[//]: # (</a>)
 
-[//]: # ()
-[//]: # (<a href="https://github.com/abordage/laravel-html-min/blob/master/README.md" title="License">)
+<a href="https://github.com/abordage/laravel-html-min/actions/workflows/tests.yml" title="GitHub Code Style Status">
+    <img alt="GitHub Code Style Status" src="https://img.shields.io/github/workflow/status/abordage/laravel-html-min/PHP%20CS%20Fixer?label=code%20style">
+</a>
 
-[//]: # (    <img alt="License" src="https://img.shields.io/github/license/abordage/laravel-html-min">)
 
-[//]: # (</a>)
 
-[//]: # ()
-[//]: # (<a href="https://github.com/abordage/laravel-html-min/actions/workflows/tests.yml" title="GitHub Tests Status">)
+<a href="https://www.php.net/" title="PHP version">
+    <img alt="PHP Version Support" src="https://img.shields.io/packagist/php-v/abordage/laravel-html-min">
+</a>
 
-[//]: # (    <img alt="GitHub Tests Status" src="https://img.shields.io/github/workflow/status/abordage/laravel-html-min/tests?label=tests">)
+<a href="https://github.com/abordage/laravel-html-min/blob/master/README.md" title="License">
+    <img alt="License" src="https://img.shields.io/github/license/abordage/laravel-html-min">
+</a>
 
-[//]: # (</a>)
-
-[//]: # ()
-[//]: # (<a href="https://github.com/abordage/laravel-html-min/actions/workflows/tests.yml" title="GitHub Code Style Status">)
-
-[//]: # (    <img alt="GitHub Code Style Status" src="https://img.shields.io/github/workflow/status/abordage/laravel-html-min/php-cs-fixer?label=code%20style">)
-
-[//]: # (</a>)
-
-[//]: # ()
-[//]: # (<a href="https://www.php.net/" title="PHP version">)
-
-[//]: # (    <img alt="Packagist PHP Version Support" src="https://img.shields.io/packagist/php-v/abordage/laravel-html-min">)
-
-[//]: # (</a>)
-
-[//]: # ()
-[//]: # (</p>)
+</p>
 
 
 ## Features:
