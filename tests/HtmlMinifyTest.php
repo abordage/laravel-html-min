@@ -70,7 +70,7 @@ EOT;
 
         Route::any('/dummy-without-doctype', fn () => response($this->htmlWithoutDoctype))->middleware(HtmlMinify::class);
         Route::any('/dummy-json', fn () => response()->json($jsonData))->middleware(HtmlMinify::class);
-        Route::any('/dummy-post-404', fn () => response($this->htmlResponse, 404))->middleware(HtmlMinify::class);
+        Route::any('/dummy-post-500', fn () => response($this->htmlResponse, 500))->middleware(HtmlMinify::class);
         Route::any('/dummy-post', fn () => $this->htmlResponse)->middleware(HtmlMinify::class);
     }
 
@@ -101,7 +101,7 @@ EOT;
         assertEquals($excepted, $content);
 
         /** test */
-        $content = $this->get('/dummy-post-404')->content();
+        $content = $this->get('/dummy-post-500')->content();
         $excepted = $this->htmlResponse;
         assertEquals($excepted, $content);
 

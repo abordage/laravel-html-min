@@ -30,7 +30,7 @@ class HtmlMinify
             return $response;
         }
 
-        if ($response->getStatusCode() !== 200) {
+        if ($response->getStatusCode() >= 500) {
             return $response;
         }
 
