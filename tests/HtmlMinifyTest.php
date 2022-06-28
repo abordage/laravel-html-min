@@ -11,6 +11,7 @@ use function PHPUnit\Framework\assertEquals;
 
 class HtmlMinifyTest extends Orchestra
 {
+    protected string $htmlWithoutDoctype;
     protected string $htmlResponse;
     protected string $jsonResponse;
 
@@ -67,10 +68,10 @@ EOT;
         $jsonData = ['name' => 'Alice', 'state' => 'Wonderland', 'author' => '   Lewis    Carroll   '];
         $this->jsonResponse = (string)json_encode($jsonData);
 
-        Route::any('/dummy-without-doctype', fn() => response($this->htmlWithoutDoctype))->middleware(HtmlMinify::class);
-        Route::any('/dummy-json', fn() => response()->json($jsonData))->middleware(HtmlMinify::class);
-        Route::any('/dummy-post-404', fn() => response($this->htmlResponse, 404))->middleware(HtmlMinify::class);
-        Route::any('/dummy-post', fn() => $this->htmlResponse)->middleware(HtmlMinify::class);
+        Route::any('/dummy-without-doctype', fn () => response($this->htmlWithoutDoctype))->middleware(HtmlMinify::class);
+        Route::any('/dummy-json', fn () => response()->json($jsonData))->middleware(HtmlMinify::class);
+        Route::any('/dummy-post-404', fn () => response($this->htmlResponse, 404))->middleware(HtmlMinify::class);
+        Route::any('/dummy-post', fn () => $this->htmlResponse)->middleware(HtmlMinify::class);
     }
 
     protected function getPackageProviders($app): array
