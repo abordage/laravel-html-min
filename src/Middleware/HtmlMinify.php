@@ -18,19 +18,7 @@ class HtmlMinify
     {
         $response = $next($request);
 
-        if (!config('html-min.enable')) {
-            return $response;
-        }
-
-        if (!in_array(strtoupper($request->getMethod()), ['GET', 'HEAD'])) {
-            return $response;
-        }
-
-        if (!$response instanceof Response) {
-            return $response;
-        }
-
-        if ($response->getStatusCode() >= 500) {
+        if (!$this->compressionPossible($request, $response)) {
             return $response;
         }
 
@@ -40,7 +28,6 @@ class HtmlMinify
             \BeyondCode\ServerTiming\Facades\ServerTiming::start('Minification');
         }
 
-        /** @phpstan-ignore-next-line */
         $htmlMin = HtmlMin::minify($html);
 
         if (class_exists('\BeyondCode\ServerTiming\Facades\ServerTiming')) {
@@ -48,5 +35,31 @@ class HtmlMinify
         }
 
         return $response->setContent($htmlMin);
+    }
+
+    /**
+     * @param Request $request
+     * @param mixed $response
+     * @return bool
+     */
+    private function compressionPossible(Request $request, $response): bool
+    {
+        if (!config('html-min.enable')) {
+            return false;
+        }
+
+        if (!in_array(strtoupper($request->getMethod()), ['GET', 'HEAD'])) {
+            return false;
+        }
+
+        if (!$response instanceof Response) {
+            return false;
+        }
+
+        if ($response->getStatusCode() >= 500) {
+            return false;
+        }
+
+        return true;
     }
 }
