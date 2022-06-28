@@ -18,6 +18,9 @@ class HtmlMinifyTest extends Orchestra
     {
         parent::setUp();
 
+
+        $this->htmlWithoutDoctype = '<div>   content   </div>';
+
         $this->htmlResponse = <<<EOT
 <!DOCTYPE html>
 <html   lang='en'>
@@ -64,9 +67,10 @@ EOT;
         $jsonData = ['name' => 'Alice', 'state' => 'Wonderland', 'author' => '   Lewis    Carroll   '];
         $this->jsonResponse = (string)json_encode($jsonData);
 
-        Route::any('/dummy-without-doctype', fn () => '<div>   content   </div>')->middleware(HtmlMinify::class);
-        Route::any('/dummy-json', fn () => response()->json($jsonData))->middleware(HtmlMinify::class);
-        Route::any('/dummy-post', fn () => $this->htmlResponse)->middleware(HtmlMinify::class);
+        Route::any('/dummy-without-doctype', fn() => response($this->htmlWithoutDoctype))->middleware(HtmlMinify::class);
+        Route::any('/dummy-json', fn() => response()->json($jsonData))->middleware(HtmlMinify::class);
+        Route::any('/dummy-post-404', fn() => response($this->htmlResponse, 404))->middleware(HtmlMinify::class);
+        Route::any('/dummy-post', fn() => $this->htmlResponse)->middleware(HtmlMinify::class);
     }
 
     protected function getPackageProviders($app): array
@@ -80,7 +84,7 @@ EOT;
     {
         /** test */
         $content = $this->get('/dummy-without-doctype')->content();
-        $excepted = '<div>   content   </div>';
+        $excepted = $this->htmlWithoutDoctype;
         assertEquals($excepted, $content);
 
         /** test */
@@ -93,6 +97,11 @@ EOT;
         /** test */
         $content = $this->get('/dummy-json')->content();
         $excepted = $this->jsonResponse;
+        assertEquals($excepted, $content);
+
+        /** test */
+        $content = $this->get('/dummy-post-404')->content();
+        $excepted = $this->htmlResponse;
         assertEquals($excepted, $content);
 
         /** test */
