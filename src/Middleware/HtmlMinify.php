@@ -30,6 +30,10 @@ class HtmlMinify
             return $response;
         }
 
+        if (!$response->getStatusCode() != 200) {
+            return $response;
+        }
+
         $html = $response->getContent();
 
         if (class_exists('\BeyondCode\ServerTiming\Facades\ServerTiming')) {
