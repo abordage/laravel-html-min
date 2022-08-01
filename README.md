@@ -144,7 +144,7 @@ Please see [CONTRIBUTING](https://github.com/abordage/.github/blob/master/CONTRI
 ## Credits
 
 - [Pavel Bychko](https://github.com/abordage)
-- [All Contributors](../../contributors)
+- [All Contributors](https://github.com/abordage/laravel-html-min/graphs/contributors)
 
 ## License
 
