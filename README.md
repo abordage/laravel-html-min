@@ -2,9 +2,11 @@
 
 Very simple (and very fast) html compression.
 
-<p style="text-align: center;" align="center">
-    <img alt="Laravel HtmlMin" src="https://github.com/abordage/laravel-html-min/blob/master/docs/images/abordage-laravel-html-min-cover.png">
-</p>
+[//]: # (<p style="text-align: center;" align="center">)
+
+[//]: # (    <img alt="Laravel HtmlMin" src="https://github.com/abordage/laravel-html-min/blob/master/docs/images/abordage-laravel-html-min-cover.png?raw=true">)
+
+[//]: # (</p>)
 
 <p style="text-align: center;" align="center">
 
