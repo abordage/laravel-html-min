@@ -20,12 +20,12 @@ Very simple (and very fast) html compression.
 </a>
 
 <a href="https://github.com/abordage/laravel-html-min/actions/workflows/tests.yml" title="GitHub Tests Status">
-    <img alt="GitHub Tests Status" src="https://img.shields.io/github/workflow/status/abordage/laravel-html-min/Tests?label=tests">
+    <img alt="GitHub Tests Status" src="https://img.shields.io/github/actions/workflow/status/abordage/laravel-html-min/tests.yml?label=tests">
 </a>
 
 
 <a href="https://github.com/abordage/laravel-html-min/actions/workflows/tests.yml" title="GitHub Code Style Status">
-    <img alt="GitHub Code Style Status" src="https://img.shields.io/github/workflow/status/abordage/laravel-html-min/PHP%20CS%20Fixer?label=code%20style">
+    <img alt="GitHub Code Style Status" src="https://img.shields.io/github/actions/workflow/status/abordage/laravel-html-min/php-cs-fixer.yml?label=code%20style">
 </a>
 
 
