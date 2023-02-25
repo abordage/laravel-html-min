@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Abordage\LaravelHtmlMin;
 
 use Abordage\HtmlMin\HtmlMin as BaseHtmlMin;
