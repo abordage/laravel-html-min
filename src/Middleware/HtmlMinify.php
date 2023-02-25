@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Abordage\LaravelHtmlMin\Middleware;
 
 use Abordage\LaravelHtmlMin\Facades\HtmlMin;

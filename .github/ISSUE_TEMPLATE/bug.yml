@@ -1,0 +1,48 @@
+name: Bug Report
+description: Report a general package issue. Filling in the issue template is mandatory, issues without it will be closed.
+title: "[Bug]: "
+labels: [ bug ]
+body:
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Is the bug applicable and reproducible to the latest version of the package and hasn't it been reported before?
+      options:
+        - label: Yes, it's still reproducible
+          required: true
+  - type: input
+    attributes:
+      label: What version of Package are you using?
+      description: 'For example: 1.2.0'
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: What version of Laravel are you using?
+      description: 'For example: 9.52.0'
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: What version of PHP are you using?
+      description: 'For example: 8.1.0'
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Describe your issue
+      description: Describe the problem you're seeing, Please be short, but concise.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: How can the issue be reproduced?
+      description: Please provide easy-to-reproduce steps (repository, simple code example, failing unit test). Please don't paste your entire code, but create a reproducible scenario that can be tested using a simple User model in a blank Laravel installation.
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: What should be the expected behaviour?
+      description: Please describe what the expected outcome should be. Any suggestions to what is wrong?
+    validations:
+      required: true
