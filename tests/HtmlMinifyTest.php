@@ -1,5 +1,10 @@
 <?php
 
+/** @noinspection JSUnresolvedVariable */
+/** @noinspection JSUnusedLocalSymbols */
+
+declare(strict_types=1);
+
 namespace Abordage\LaravelHtmlMin\Tests;
 
 use Abordage\LaravelHtmlMin\HtmlMinServiceProvider;
@@ -11,18 +16,8 @@ use function PHPUnit\Framework\assertEquals;
 
 class HtmlMinifyTest extends Orchestra
 {
-    protected string $htmlWithoutDoctype;
-    protected string $htmlResponse;
-    protected string $jsonResponse;
-
-    protected function setUp(): void
-    {
-        parent::setUp();
-
-
-        $this->htmlWithoutDoctype = '<div>   content   </div>';
-
-        $this->htmlResponse = <<<EOT
+    protected string $htmlWithoutDoctype = '<div>   content   </div>';
+    protected string $htmlResponse = <<<EOT
 <!DOCTYPE html>
 <html   lang='en'>
     <head>
@@ -65,10 +60,22 @@ class HtmlMinifyTest extends Orchestra
 </html>
 EOT;
 
-        $jsonData = ['name' => 'Alice', 'state' => 'Wonderland', 'author' => '   Lewis    Carroll   '];
+    protected string $jsonResponse;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $jsonData = [
+            'name' => 'Alice',
+            'state' => 'Wonderland',
+            'author' => '   Lewis    Carroll   '
+        ];
         $this->jsonResponse = (string)json_encode($jsonData);
 
-        Route::any('/dummy-without-doctype', fn () => response($this->htmlWithoutDoctype))->middleware(HtmlMinify::class);
+        Route::any('/dummy-without-doctype', fn () => response($this->htmlWithoutDoctype))->middleware(
+            HtmlMinify::class
+        );
         Route::any('/dummy-json', fn () => response()->json($jsonData))->middleware(HtmlMinify::class);
         Route::any('/dummy-post-500', fn () => response($this->htmlResponse, 500))->middleware(HtmlMinify::class);
         Route::any('/dummy-post', fn () => $this->htmlResponse)->middleware(HtmlMinify::class);
@@ -81,44 +88,55 @@ EOT;
         ];
     }
 
-    public function testHandle(): void
+    public function testDoNotMinifyIfDoctypeIsNotFound(): void
     {
-        /** test */
         $content = $this->get('/dummy-without-doctype')->content();
         $excepted = $this->htmlWithoutDoctype;
         assertEquals($excepted, $content);
+    }
 
-        /** test */
+    public function testMinifyIfDoctypeIsNotFound(): void
+    {
         config(['html-min.find_doctype_in_document' => false]);
         $content = $this->get('/dummy-without-doctype')->content();
         $excepted = '<div>content</div>';
         assertEquals($excepted, $content);
         config(['html-min.find_doctype_in_document' => true]);
+    }
 
-        /** test */
+    public function testDoNotMinifyIfJsonResponse(): void
+    {
         $content = $this->get('/dummy-json')->content();
         $excepted = $this->jsonResponse;
         assertEquals($excepted, $content);
+    }
 
-        /** test */
+    public function testDoNotMinifyIfFatalError(): void
+    {
         $content = $this->get('/dummy-post-500')->content();
         $excepted = $this->htmlResponse;
         assertEquals($excepted, $content);
+    }
 
-        /** test */
+    public function testDisableMinifyIfPutMethod(): void
+    {
         $content = $this->put('/dummy-post')->content();
         $excepted = $this->htmlResponse;
         assertEquals($excepted, $content);
+    }
 
-        /** test */
+    public function testDisableMinify(): void
+    {
         config(['html-min.enable' => false]);
         $content = $this->get('/dummy-post')->content();
         $excepted = $this->htmlResponse;
         assertEquals($excepted, $content);
 
-        /** test */
         config(['html-min.enable' => true]);
-        config(['html-min.remove_whitespace_between_tags' => true]);
+    }
+
+    public function testMinify(): void
+    {
         config(['html-min.remove_blank_lines_in_script_elements' => true]);
 
         $content = $this->get('/dummy-post')->content();
@@ -130,9 +148,12 @@ const b = c
 EOT;
         assertEquals($excepted, $content);
 
-        /** test */
-        config(['html-min.remove_whitespace_between_tags' => false]);
         config(['html-min.remove_blank_lines_in_script_elements' => false]);
+    }
+
+    public function testMinifyWithoutScriptsAndWhitespaceBetweenTags(): void
+    {
+        config(['html-min.remove_whitespace_between_tags' => false]);
 
         $content = $this->get('/dummy-post')->content();
         $excepted = <<<EOT
@@ -144,5 +165,7 @@ EOT;
             </script> </footer> </body> </html>
 EOT;
         assertEquals($excepted, $content);
+
+        config(['html-min.remove_whitespace_between_tags' => true]);
     }
 }
