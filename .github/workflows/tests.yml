@@ -11,16 +11,24 @@ jobs:
       matrix:
         stability: [ prefer-stable ]
         os: [ ubuntu-latest ]
-        php: [7.4, 8.0, 8.1]
-        laravel: [8.*, 9.*]
+        php: [7.4, 8.0, 8.1, 8.2]
+        laravel: [8.*, 9.*, 10.*]
         include:
           - laravel: 8.*
             testbench: ^6.0
           - laravel: 9.*
             testbench: ^7.0
+          - laravel: 10.*
+            testbench: ^8.0
         exclude:
           - php: 7.4
             laravel: 9.*
+          - php: 7.4
+            laravel: 10.*
+          - php: 8.0
+            laravel: 10.*
+          - php: 8.2
+            laravel: 8.*
 
     name: Laravel ${{ matrix.laravel }} on PHP ${{ matrix.php }}
 
@@ -41,4 +49,4 @@ jobs:
           composer require "laravel/framework=${{ matrix.laravel }}" "orchestra/testbench=${{ matrix.testbench }}" --no-update
           composer update --prefer-dist --no-interaction --no-progress
       - name: Run tests
-        run: vendor/bin/phpunit --verbose
+        run: vendor/bin/phpunit
