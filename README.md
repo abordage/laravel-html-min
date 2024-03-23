@@ -50,8 +50,8 @@ Very simple (and very fast) html compression.
 - Very fast. See benchmark
 
 ## Requirements
-- PHP 7.4 - 8.2
-- Laravel 8 - 10
+- PHP 7.4 - 8.3
+- Laravel 8.x - 11.x
 
 ## Installation
 
