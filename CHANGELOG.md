@@ -2,6 +2,25 @@
 
 All notable changes to `laravel-html-min` will be documented in this file.
 
+## 0.2.2 - 2025-02-27
+
+### What's Changed
+
+* Bump lycheeverse/lychee-action from 1.8.0 to 1.9.3 by @dependabot in https://github.com/abordage/laravel-html-min/pull/26
+* Bump dependabot/fetch-metadata from 1.6.0 to 2.0.0 by @dependabot in https://github.com/abordage/laravel-html-min/pull/27
+* Bump peter-evans/create-issue-from-file from 4 to 5 by @dependabot in https://github.com/abordage/laravel-html-min/pull/28
+* Bump ramsey/composer-install from 2 to 3 by @dependabot in https://github.com/abordage/laravel-html-min/pull/29
+* Bump dependabot/fetch-metadata from 2.0.0 to 2.1.0 by @dependabot in https://github.com/abordage/laravel-html-min/pull/30
+* Bump lycheeverse/lychee-action from 1.9.3 to 1.10.0 by @dependabot in https://github.com/abordage/laravel-html-min/pull/31
+* Bump dependabot/fetch-metadata from 2.1.0 to 2.2.0 by @dependabot in https://github.com/abordage/laravel-html-min/pull/32
+* Update composer.json to support laravel 12 by @phunsok in https://github.com/abordage/laravel-html-min/pull/37
+
+### New Contributors
+
+* @phunsok made their first contribution in https://github.com/abordage/laravel-html-min/pull/37
+
+**Full Changelog**: https://github.com/abordage/laravel-html-min/compare/0.2.1...0.2.2
+
 ## 0.2.1 - 2024-03-23
 
 ### What's Changed
