@@ -16,11 +16,6 @@ Very simple (and very fast) html compression.
     <img alt="Packagist Version" src="https://img.shields.io/packagist/v/abordage/laravel-html-min">
 </a>
 
-<a href="https://scrutinizer-ci.com/g/abordage/laravel-html-min/" title="Scrutinizer Quality Score">
-    <img alt="Scrutinizer Quality Score" 
-         src="https://scrutinizer-ci.com/g/abordage/laravel-html-min/badges/quality-score.png?b=master">
-</a>
-
 <a href="https://github.com/abordage/laravel-html-min/actions/workflows/tests.yml" title="GitHub Tests Status">
     <img alt="GitHub Tests Status" src="https://img.shields.io/github/actions/workflow/status/abordage/laravel-html-min/tests.yml?label=tests">
 </a>
