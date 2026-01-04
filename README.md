@@ -43,15 +43,16 @@ Very simple (and very fast) html compression.
 </p>
 
 
-## Features:
+## Features
 - Removing extra whitespaces
 - Removing html comments (works correctly with `livewire/livewire` comments)
+- Removing trailing slashes from void elements (HTML5)
 - Skip `textarea`, `pre` and `script` elements
 - Very fast. See benchmark
 
 ## Requirements
-- PHP 7.4 - 8.3
-- Laravel 8.x - 11.x
+- PHP 7.4 or higher (7.4, 8.0, 8.1, 8.2, 8.3, 8.4)
+- Laravel 8.x - 12.x
 
 ## Installation
 
@@ -87,37 +88,15 @@ It's all. Optionally you can change the settings in `config/html-min.php`
 
 ## Configuration
 
-```php
-return [
-    /*
-    |--------------------------------------------------------------------------
-    | Enable Html Min
-    |--------------------------------------------------------------------------
-    */
-    'enable' => env('HTML_MINIFY', true),
+| Option                                  | Default | Description                            |
+|-----------------------------------------|---------|----------------------------------------|
+| `enable`                                | `true`  | Enable/disable HTML minification       |
+| `find_doctype_in_document`              | `true`  | Skip minification if DOCTYPE not found |
+| `remove_whitespace_between_tags`        | `true`  | Remove whitespace between tags         |
+| `remove_blank_lines_in_script_elements` | `false` | Remove blank lines in `<script>`       |
+| `remove_trailing_slashes`               | `false` | Convert `<link />` to `<link>`         |
 
-    /*
-    |--------------------------------------------------------------------------
-    | Find DOCTYPE in document
-    |--------------------------------------------------------------------------
-    */
-    'find_doctype_in_document' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Remove whitespace between tags
-    |--------------------------------------------------------------------------
-    */
-    'remove_whitespace_between_tags' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Remove blank lines in script elements
-    |--------------------------------------------------------------------------
-    */
-    'remove_blank_lines_in_script_elements' => false,
-];
-```
+See `config/html-min.php` for detailed descriptions.
 
 ## Benchmark
 
