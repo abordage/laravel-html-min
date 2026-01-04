@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-html-min` will be documented in this file.
 
+## 1.0.0 - 2026-01-04
+
+### What's Changed
+
+* feat: add support for removing trailing slashes from void elements by @abordage in https://github.com/abordage/laravel-html-min/pull/38
+
+**Full Changelog**: https://github.com/abordage/laravel-html-min/compare/0.2.2...1.0.0
+
 ## 0.2.2 - 2025-02-27
 
 ### What's Changed
