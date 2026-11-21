@@ -2,6 +2,14 @@
 
 All notable changes to `laravel-html-min` will be documented in this file.
 
+## 1.0.1 - 2026-11-21
+
+### What's Changed
+
+* Add Laravel 13 support
+
+**Full Changelog**: https://github.com/abordage/laravel-html-min/compare/1.0.0...1.0.1
+
 ## 1.0.0 - 2026-01-04
 
 ### What's Changed
