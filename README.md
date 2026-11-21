@@ -45,7 +45,7 @@ Very simple (and very fast) html compression.
 
 ## Requirements
 - PHP 7.4 or higher (7.4, 8.0, 8.1, 8.2, 8.3, 8.4)
-- Laravel 8.x - 12.x
+- Laravel 8.x - 13.x
 
 ## Installation
 
