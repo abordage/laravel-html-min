@@ -88,6 +88,11 @@ jobs:
       - name: Install dependencies
         run: |
           composer require "laravel/framework=${{ matrix.laravel }}" "orchestra/testbench=${{ matrix.testbench }}" --no-update
+          case "${{ matrix.laravel }}" in
+            8.*|9.*|10.*|11.*)
+              composer config policy.advisories.block false
+              ;;
+          esac
           composer update --prefer-dist --no-interaction --no-progress
       - name: Run tests
         run: vendor/bin/phpunit
